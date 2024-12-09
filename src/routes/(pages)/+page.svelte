@@ -38,7 +38,7 @@
 					<img
 						class="rounded-full w-20 h-20 spin"
 						src={spotify.item.uri.startsWith('spotify:local')
-							? `https://localfiles.lvna.gay/${spotify.item.uri}/image`
+							? `https://localfiles.lilyy.gay/${spotify.item.uri}/image`
 							: spotify.item.album.images[0].url}
 						alt="Album Cover"
 					/>
