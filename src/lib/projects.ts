@@ -2,8 +2,8 @@ export const projects = [
 	{
 		name: 'This Website',
 		language: 'Svelte',
-		url: 'https://lvna.gay',
-		source: 'https://github.com/imlvna/website'
+		url: 'https://lilyy.gay',
+		source: 'https://github.com/lillithkt/website'
 	}
 ] as {
 	name: string;
