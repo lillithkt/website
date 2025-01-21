@@ -64,7 +64,7 @@
 
 	const backgroundImage = $derived(
 		lilysSpotifyApi.item?.uri.startsWith('spotify:local')
-			? `https://localfiles.lvna.gay/${lilysSpotifyApi.item.uri}/image`
+			? `https://localfiles.lilyy.gay/${lilysSpotifyApi.item.uri}/image`
 			: lilysSpotifyApi.item?.album.images[0].url
 	);
 
