@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { projects } from '$lib/projects';
 	import Spotify from '$lib/spotify.svelte.js';
 	import tooltip from '$lib/tooltip/index.svelte';
 	import { nullsToUndefined } from '$lib/util.js';
@@ -27,8 +26,8 @@
 	/>
 	<h1 class="text-5xl">Lillith</h1>
 	<p class="text-1xl py-10">
-		I am a freelance programmer who works on a variety of projects. I work in many languages, but
-		specialize in Typescript
+		Programmer at <i><a href="https://www.pridevr.org">PrideVR</a></i>, working on frontend and
+		backend projects, such as management panels and SSO
 	</p>
 	{#if spotify.item && spotify.isPlaying}
 		<div class="flex flex-col w-fit gap-3 justify-center align-middle items-center">
@@ -67,17 +66,16 @@
 						<div class="flex flex-col h-16 w-16 text-black rounded-full bg-pink justify-center">
 							<button
 								onclick={() => {
-								
-								if (!audioSource) return;
-								if (audioSource.paused) {
-									audioSource.currentTime = spotify.progressMs! / 1000;
-									hasPlayed = true;
-									audioSource.play();
-								} else {
-									audioSource.pause();
-									hasPlayed = false;
-								}
-							}}
+									if (!audioSource) return;
+									if (audioSource.paused) {
+										audioSource.currentTime = spotify.progressMs! / 1000;
+										hasPlayed = true;
+										audioSource.play();
+									} else {
+										audioSource.pause();
+										hasPlayed = false;
+									}
+								}}
 							>
 								{audioSourcePlaying ? 'Pause' : 'Play'}
 							</button>
@@ -99,27 +97,12 @@
 		<li use:tooltip={'This is not a joke.'}>My pronouns are Pup/Pups</li>
 		<li>Trans</li>
 		<li>Lesbian-Leaning</li>
-		<li use:tooltip={'i love you annie and nyx~<3'}>Taken</li>
+		<li use:tooltip={'i love you sammy~<3'}>Taken</li>
 	</ul>
 	<h2 class="text-3xl">I Know:</h2>
 	<ul class="list-disc list-outside">
-		{#each ['Typescript', 'Svelte', 'Python', 'React', 'Rust'] as i}
+		{#each ['Kotlin', 'Typescript', 'Svelte', 'Python', 'C#'] as i}
 			<li>{i}</li>
-		{/each}
-	</ul>
-	<h2 class="text-3xl">Current Projects:</h2>
-	<ul class="list-disc list-outside">
-		{#each projects as project}
-			<li class="project flex flex-col">
-				<div>{project.name}</div>
-				<div>{project.language}</div>
-				{#if project.url}
-					<a class="underline" href={project.url}>Link</a>
-				{/if}
-				{#if project.source}
-					<a class="underline" href={project.source}>Github</a>
-				{/if}
-			</li>
 		{/each}
 	</ul>
 </div>
