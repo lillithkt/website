@@ -1,24 +1,72 @@
-@import url(/font/ComicCodeLigatures/font.css);
+@import url(/font/ComicCodeLigatures/font.css) layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.js';
+
+@theme inline {
+  --color-rosewater: rgba(var(--ctp-rosewater));
+  --color-flamingo: rgba(var(--ctp-flamingo));
+  --color-pink: rgba(var(--ctp-pink));
+  --color-mauve: rgba(var(--ctp-mauve));
+  --color-red: rgba(var(--ctp-red));
+  --color-maroon: rgba(var(--ctp-maroon));
+  --color-peach: rgba(var(--ctp-peach));
+  --color-yellow: rgba(var(--ctp-yellow));
+  --color-green: rgba(var(--ctp-green));
+  --color-teal: rgba(var(--ctp-teal));
+  --color-sky: rgba(var(--ctp-sky));
+  --color-sapphire: rgba(var(--ctp-sapphire));
+  --color-blue: rgba(var(--ctp-blue));
+  --color-lavender: rgba(var(--ctp-lavender));
+  --color-text: rgba(var(--ctp-text));
+  --color-subtext1: rgba(var(--ctp-subtext1));
+  --color-subtext0: rgba(var(--ctp-subtext0));
+  --color-overlay2: rgba(var(--ctp-overlay2));
+  --color-overlay1: rgba(var(--ctp-overlay1));
+  --color-overlay0: rgba(var(--ctp-overlay0));
+  --color-surface2: rgba(var(--ctp-surface2));
+  --color-surface1: rgba(var(--ctp-surface1));
+  --color-surface0: rgba(var(--ctp-surface0));
+  --color-base: rgba(var(--ctp-base));
+  --color-mantle: rgba(var(--ctp-mantle));
+  --color-crust: rgba(var(--ctp-crust));
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 html {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 html,
 body {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
 #root-wrapper {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }

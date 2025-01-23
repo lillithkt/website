@@ -23,7 +23,7 @@ export default {
 	plugins: [
 		ctp({
 			defaultFlavour: 'macchiato',
-			prefix: false
+			prefix: "ctp"
 		})
 	]
 };

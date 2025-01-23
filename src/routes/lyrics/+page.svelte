@@ -169,7 +169,7 @@
 	<div class="bkgcontainer">
 		<img class="background" src={backgroundImage} alt="Background for lyrics page" />
 	</div>
-	<div class="container mx-auto max-w-screen-md h-content">
+	<div class="container mx-auto max-w-(--breakpoint-md) h-content">
 		{#if lilysSpotifyApi.lyrics}
 			{#if lilysSpotifyApi.lyrics.syncType === 'UNSYNCED'}
 				UNSYNCED
@@ -248,7 +248,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	.controls {
 		position: fixed;
 		bottom: 0;
@@ -313,15 +313,8 @@
 		transition: text-sha;
 	}
 
-	.line.current:not(.syllable) .text {
-		@apply glow;
-	}
-
+	.line.current:not(.syllable) .text,
 	.line.current .text.currentSyllable {
-		@apply glow;
-	}
-
-	.glow {
 		text-shadow: 0 0 10px #ffffff;
 	}
 

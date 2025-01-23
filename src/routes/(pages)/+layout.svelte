@@ -2,7 +2,7 @@
 	<title>Lily's Site</title>
 </svelte:head>
 
-<div class="root bg-base text-text min-h-full w-full">
+<div class="root bg-ctp-base text-text min-h-full w-full">
 	<!-- <div class="header flex flex-row w-full items-center">
 		<nav>
 			<a href="/">Home</a>
