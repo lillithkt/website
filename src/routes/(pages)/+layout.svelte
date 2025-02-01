@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Lily's Site</title>
+	<meta name="darkreader-lock" content="nuh uh" />
 </svelte:head>
 
 <div class="root bg-ctp-base text-text min-h-full w-full">
