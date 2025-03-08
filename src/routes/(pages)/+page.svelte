@@ -97,7 +97,7 @@
 		<li use:tooltip={'This is not a joke.'}>My pronouns are Pup/Pups</li>
 		<li>Trans</li>
 		<li>Lesbian-Leaning</li>
-		<li use:tooltip={'i love you sammy, alexis, and nikki~<3'}>Taken</li>
+		<li use:tooltip={'i love you sammy, alexis, and ashter~<3'}>Taken</li>
 	</ul>
 	<h2 class="text-3xl">I Know:</h2>
 	<ul class="list-disc list-outside">
