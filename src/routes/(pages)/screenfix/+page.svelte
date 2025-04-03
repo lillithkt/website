@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 
 	let canvas = $state<HTMLCanvasElement>();
+	const ctx = $derived(canvas?.getContext('2d'));
 	function draw() {
-		if (!canvas) return;
-		const ctx = canvas.getContext('2d')!;
+		if (!canvas || !ctx) return;
 
 		const blockSize = 512;
 		const imageData = ctx.createImageData(blockSize, blockSize);
