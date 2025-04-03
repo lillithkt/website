@@ -16,11 +16,7 @@
 			imageData.data[p + 3] = 255;
 		}
 
-		for (var y = 0; y < canvas.height; y += blockSize) {
-			for (var x = 0; x < canvas.width; x += blockSize) {
-				ctx.putImageData(imageData, x, y);
-			}
-		}
+		ctx.putImageData(imageData, 0, 0);
 	}
 	onMount(() => {
 		setInterval(draw, 10);
