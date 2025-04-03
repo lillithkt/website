@@ -6,9 +6,9 @@
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d')!;
 
-		const blockSize = canvas.width * canvas.height;
-		const imageData = ctx.createImageData(canvas.width, canvas.height);
-		for (var i = 0; i < blockSize; i++) {
+		const blockSize = 512;
+		const imageData = ctx.createImageData(blockSize, blockSize);
+		for (var i = 0; i < blockSize * blockSize; i++) {
 			var p = i * 4;
 			imageData.data[p + 0] = Math.random() >= 0.5 ? 255 : 0;
 			imageData.data[p + 1] = Math.random() >= 0.5 ? 255 : 0;
@@ -16,7 +16,11 @@
 			imageData.data[p + 3] = 255;
 		}
 
-		ctx.putImageData(imageData, 0, 0);
+		for (var y = 0; y < canvas.height; y += blockSize) {
+			for (var x = 0; x < canvas.width; x += blockSize) {
+				ctx.putImageData(imageData, x, y);
+			}
+		}
 	}
 	onMount(() => {
 		setInterval(draw, 10);
