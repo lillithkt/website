@@ -26,7 +26,7 @@
 	/>
 	<h1 class="text-5xl">Lillith</h1>
 	<p class="text-1xl py-10">
-		Programmer at <i><a href="https://www.pridevr.org">PrideVR</a></i>, working on frontend and
+		Programmer at <i><a href="https://git.gay/pupsie">Pupsie</a></i>, working on frontend and
 		backend projects, such as management panels and SSO
 	</p>
 	{#if spotify.item && spotify.isPlaying}
