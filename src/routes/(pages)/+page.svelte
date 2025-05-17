@@ -101,7 +101,7 @@
 	</ul>
 	<h2 class="text-3xl">I Know:</h2>
 	<ul class="list-disc list-outside">
-		{#each ['Kotlin', 'Typescript', 'Svelte', 'Python', 'C#'] as i}
+		{#each ['Typescript', 'Svelte', 'Kotlin', 'Python', 'C#'] as i}
 			<li>{i}</li>
 		{/each}
 	</ul>
