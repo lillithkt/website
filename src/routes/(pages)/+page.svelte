@@ -27,7 +27,7 @@
 	<h1 class="text-5xl">Lillith</h1>
 	<p class="text-1xl py-10">
 		Programmer at <i><a href="https://pupsie.co">Pupsie</a></i>, working on frontend and
-		backend projects, such as management panels and SSO
+		backend projects, previously on management panels and SSO
 	</p>
 	{#if spotify.item && spotify.isPlaying}
 		<div class="flex flex-col w-fit gap-3 justify-center align-middle items-center">
@@ -97,7 +97,7 @@
 		<li use:tooltip={'This is not a joke.'}>My pronouns are Pup/Pups</li>
 		<li>Trans</li>
 		<li>Lesbian-Leaning</li>
-		<li use:tooltip={'i love you sammy, alexis, and ashter~<3'}>Taken</li>
+		<li use:tooltip={'i love you sammy, alexis, ashter, and rush~<3'}>Taken</li>
 	</ul>
 	<h2 class="text-3xl">I Know:</h2>
 	<ul class="list-disc list-outside">
