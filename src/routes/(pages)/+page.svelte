@@ -24,7 +24,7 @@
 		src="https://cdn.discordapp.com/avatars/{data.user.id}/{data.user.avatar}.png"
 		alt="Profile"
 	/>
-	<h1 class="text-5xl">Lillith</h1>
+	<h1 class="text-5xl">lillith~<3</h1>
 	<p class="text-1xl py-10">
 		Programmer at <i><a href="https://pupsie.co">Pupsie</a></i>, working on frontend and
 		backend projects, previously on management panels and SSO
