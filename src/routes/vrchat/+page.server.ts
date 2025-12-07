@@ -1,7 +1,10 @@
 import vrc from "$lib/server/vrchat";
+import { error } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
+import devPage from "$lib/server/utils/devPage";
 
 export const load: PageServerLoad = async () => {
+  devPage();
   const currentUser = await vrc.getCurrentUser();
   console.log(currentUser);
   return {

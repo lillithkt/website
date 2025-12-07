@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #2a1c2d;
+  --color-background-secondary: #231923;
+
+  --color-button: #2c202e;
+  --color-button-hover: #3a2e3d;
+  --color-border: #392b3a;
+  --color-text: white;
+}
+
+
+button {
+  @apply bg-button;
+  @apply hover:bg-button-hover;
+  @apply transition-colors duration-200;
+}
+
+html, body {
+  @apply size-full;
+}
+
+hr {
+  /* text class but hr takes it */
+  @apply text-border;
+}
+
+a:not(.no-italic) {
+  @apply italic;
+}
+
+code {
+  font-family: 'Comic Code Ligatures', monospace;
+}
