@@ -1,5 +1,6 @@
 <script lang="ts">
 	import tooltip from "$lib/components/tooltip/index.svelte";
+	import { MetaTags } from 'svelte-meta-tags';
 
 	const birthday = "2006-11-17T05:00:00.000Z";
 
@@ -21,6 +22,8 @@
     "Python",
   ];
 </script>
+
+<MetaTags description="My personal site!" />
 
 <div class="flex flex-col gap-2">
 	<h1 class="text-3xl">Hey there, I'm LillithRosePup!</h1>

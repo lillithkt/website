@@ -1,8 +1,10 @@
 <script lang="ts">
 	import tooltip from "$lib/components/tooltip/index.svelte";
-
+  import { MetaTags } from 'svelte-meta-tags';
 
 </script>
+
+<MetaTags description="Contact me!" />
 
 <div class="flex flex-col gap-2">
   <h1 class="text-3xl">Contact Me</h1>
