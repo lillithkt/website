@@ -5,9 +5,8 @@ RUN apt update
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-ENV BUILDING=true
+ENV TESTENV=true
 RUN pnpm run build
-ENV BUILDING=false
 RUN pnpm prune --production
 
 FROM node:22-bookworm

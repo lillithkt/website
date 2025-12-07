@@ -1,9 +1,10 @@
+import { error } from '@sveltejs/kit';
 import environment from './environment';
 import { VRChat } from 'vrchat';
 
 const AUTHPROXY_TAG = 'personal';
 
-const vrc = new VRChat({
+const vrcClient = new VRChat({
 	application: {
 		name: `LillithRosePup Website`,
 		version: `1.0.0`,
@@ -27,7 +28,7 @@ const vrc = new VRChat({
 });
 
 export function getUserAgent() {
-	const config = vrc.client.getConfig();
+	const config = vrcClient.client.getConfig();
 	if (!config.headers) throw new Error('Headers does not exist on config');
 	if (Array.isArray(config.headers)) {
 		const entry = config.headers.find(([key, _]: [string, string]) => key == 'User-Agent');
@@ -47,6 +48,7 @@ export function getUserAgent() {
 
 
 export function manualFetch(path: string, options: RequestInit = {}) {
+	if (!environment.AUTHPROXY_KEY) error(500, 'VRChat API is not configured');
 	path = '/api/1' + path;
 	if (!options.headers) options.headers = {};
 	options.headers = {
@@ -59,4 +61,8 @@ export function manualFetch(path: string, options: RequestInit = {}) {
 	return fetch(environment.AUTHPROXY_URL + path, options);
 }
 
+const vrc = () => {
+	if (!environment.AUTHPROXY_KEY) error(500, 'VRChat API is not configured');
+	return vrcClient
+}
 export default vrc;
