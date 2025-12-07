@@ -11,11 +11,14 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"test:e2e": "playwright test",
+		"test": "npm run test:e2e"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
+		"@playwright/test": "^1.56.1",
 		"@shikijs/themes": "^3.19.0",
 		"@sveltejs/adapter-node": "^5.4.0",
 		"@sveltejs/kit": "^2.48.5",

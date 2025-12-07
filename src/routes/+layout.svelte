@@ -12,7 +12,7 @@
 	<link href="/font/ComicCodeLigatures/font.css" rel="stylesheet">
 </svelte:head>
 
-<MetaTags title="LillithRosePup's Site" description="unknown page" additionalMetaTags={[{ name: 'theme-color', content: '#E1B6EB' }]} />
+<MetaTags title="LillithRosePup's Site" additionalMetaTags={[{ name: 'theme-color', content: '#E1B6EB' }]} />
 
 <div id="root" class="bg-background-secondary text-text size-full p-5 flex flex-col gap-5">
 
