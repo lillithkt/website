@@ -8,3 +8,8 @@ import { error } from "@sveltejs/kit";
 export default function devPage(message: string = "This page is still being worked on!", code: number = 404) {
   if (!import.meta.env.DEV) error(code, message)
 }
+
+/**
+ * devPage wrapper forcing "This page is for testing only! It is disabled in production." and 404
+ */
+export const testPage = () => devPage("This page is for testing only! It is disabled in production.", 404);

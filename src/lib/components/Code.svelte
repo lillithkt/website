@@ -9,7 +9,7 @@
     }
   </style>`;
 
-  const supportedLanguages = z.enum(['javascript', 'typescript', "txt"]);
+  const supportedLanguages = z.enum(['javascript', 'typescript', 'json', "txt"]);
 
   const highlighter = await createHighlighter({
     langs: supportedLanguages.options,

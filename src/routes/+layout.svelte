@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { MetaTags } from 'svelte-meta-tags';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 	import './app.css';
 
 	let { children } = $props();
@@ -17,11 +17,12 @@
 <div id="root" class="bg-background-secondary text-text size-full p-5 flex flex-col gap-5">
 
 	<div id="header" class="p-5 border-border border rounded-lg flex justify-between items-center">
-		<h1 class="text-2xl font-bold"><a href="/" class="no-italic">LillithRosePup's Site</a></h1>
+		<h1 class="text-2xl font-bold">
+			<a href="/" class="not-italic">LillithRosePup's Site</a></h1>
 		<nav>
-			<a href="/">Home</a>
-			<a href="https://vrchat.lilyy.gay" target="_blank">VRChat</a>
-			<a href="/contact">Contact</a>
+			<a class="not-italic" href="/">Home</a>
+			<a class="not-italic" href="/vrchat">VRChat</a>
+			<a class="not-italic" href="/contact">Contact</a>
 		</nav>
 	</div>
 

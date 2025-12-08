@@ -53,7 +53,7 @@
         {#if typeof language === 'string'}
           <li>{language}</li>
         {:else}
-          <li use:tooltip={language.url ? undefined : language.tooltip}>
+          <li use:tooltip={language.tooltip}>
             {#if language.url}
               <a href={language.url} target="_blank" class="underline">{language.name}</a>
             {:else}
@@ -62,6 +62,17 @@
           </li>
         {/if}
       {/each}
+    </ul>
+  </div>
+
+  <!-- Category -->
+  <div class="bg-background-secondary p-5 border-border border rounded-lg mt-10">
+    <span>Site Key</span>
+    <ul class="list-disc list-inside text-sm flex flex-col">
+      <li>Underlined text <span use:tooltip={"Like this!"}>Has a Tooltip</span></li>
+      <li class="italic">Italic text is a link</li>
+      <li><a href="https://catoftheday.com/" target="_blank" use:tooltip={"oo cat!"}>Links can have tooltips too</a></li>
+      <li><a href="https://dogoftheday.com/" class="not-italic" target="_blank" use:tooltip={{ text: "sneaky :3", underline: false }}>Links and tooltips don't have to be visible</a></li>
     </ul>
   </div>
 </div>
