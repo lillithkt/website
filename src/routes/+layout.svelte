@@ -3,7 +3,7 @@
 	import favicon from '$lib/assets/favicon.png';
 	import './app.css';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -21,7 +21,7 @@
 			<a href="/" class="not-italic">LillithRosePup's Site</a></h1>
 		<nav>
 			<a class="not-italic" href="/">Home</a>
-			<a class="not-italic" href="/vrchat">VRChat</a>
+			{#if data.vrcApiAccess}<a class="not-italic" href="/vrchat">VRChat</a>{/if}
 			<a class="not-italic" href="/contact">Contact</a>
 		</nav>
 	</div>

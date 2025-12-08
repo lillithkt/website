@@ -88,6 +88,7 @@ async function getAllPages(): Promise<string[]> {
 test('All pages should have a description meta tag', async ({ page }) => {
   const allPages = await getAllPages();
 	for (const path of allPages) {
+      console.log(`Testing ${path}`);
       await page.goto(path);
       await page.waitForLoadState('networkidle');
 			expect(page.locator('meta[name="description"]')).toHaveAttribute('content');
