@@ -10,7 +10,7 @@ const getCurrentUser = ratelimit(async () => {
   const currentUser = await vrc().getCurrentUser();
   if (!currentUser.data) throw new Error("Failed to get VRChat profile");
   return currentUser.data;
-}, ms("15s"));
+}, ms("3m"));
 
 const getWorld = ratelimit(async (worldId: WorldId) => {
   const world = await vrc().getWorld({ path: { worldId } });
