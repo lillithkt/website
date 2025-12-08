@@ -15,9 +15,9 @@
   ]
 </script>
 
-<MetaTags description="{data.currentUser.displayName} VRChat profile" openGraph={{ images: [{ url: profilePic }] }} />
+<MetaTags description="{data.currentUser.displayName}'s VRChat profile" openGraph={{ images: [{ url: profilePic }] }} />
 <svelte:head>
-  <title>{data.currentUser.displayName} VRChat profile</title>
+  <title>{data.currentUser.displayName}'s' VRChat profile</title>
   {#each preconnectDomains as domain}
     <link rel="preconnect" href={domain} crossorigin="anonymous" />
   {/each}
