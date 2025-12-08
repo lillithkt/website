@@ -2,14 +2,14 @@
 	import tooltip from "$lib/components/tooltip/index.svelte";
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const birthday = "2006-11-17T05:00:00.000Z";
+	const birthday = new Date("2006-11-17T05:00:00.000Z");
 
-  const smallThings: (string | string[])[] = [
-    [`I'm ${new Date().getFullYear() - new Date(birthday).getFullYear()} years old.`, new Date(birthday).toLocaleDateString()],
+  const smallThings: (string | [string, string, boolean?])[] = [
+    [`I'm ${new Date().getFullYear() - birthday.getFullYear()} years old.`, birthday.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })],
   ];
-  const languages: (string | { name: string, url?: string, tooltip?: string })[] = [
-    "Typescript",
-    "Svelte",
+  const languages: (string | { name: string, url?: string, tooltip?: string, underline?: boolean })[] = [
+    { name: "Typescript", underline: false, tooltip: "Makes javascript slightly less unbearable. Slightly." },
+    { name: "Svelte", underline: false, tooltip: "What this site is built with!" },
     {
       name: "Rust",
       tooltip: "What I'm learning for work!"
@@ -19,7 +19,6 @@
       tooltip: "Most of my C# work is for unity editor tools, namely my framework for creating Animator Controllers from code."
     },
     { name: "U#", url: "https://udonsharp.docs.vrchat.com/", tooltip: "VRChat's restricted C#, compiled down to bytecode" },
-    "Python",
   ];
 </script>
 
@@ -41,7 +40,7 @@
         {#if typeof thing === 'string'}
           <li>{thing}</li>
         {:else}
-          <li use:tooltip={{ text: thing[1], underline: false }}>{thing[0]}</li>
+          <li use:tooltip={{ text: thing[1], underline: thing[2] }}>{thing[0]}</li>
         {/if}
       {/each}
     </ul>
@@ -53,9 +52,9 @@
         {#if typeof language === 'string'}
           <li>{language}</li>
         {:else}
-          <li use:tooltip={language.tooltip}>
+          <li use:tooltip={{ text: language.tooltip, underline: language.underline }}>
             {#if language.url}
-              <a href={language.url} target="_blank" class="underline">{language.name}</a>
+              <a href={language.url} target="_blank">{language.name}</a>
             {:else}
               {language.name}
             {/if}
@@ -69,10 +68,10 @@
   <div class="bg-background-secondary p-5 border-border border rounded-lg mt-10">
     <span>Site Key</span>
     <ul class="list-disc list-inside text-sm flex flex-col">
-      <li>Underlined text <span use:tooltip={"Like this!"}>Has a Tooltip</span></li>
-      <li class="italic">Italic text is a link</li>
-      <li><a href="https://catoftheday.com/" target="_blank" use:tooltip={"oo cat!"}>Links can have tooltips too</a></li>
-      <li><a href="https://dogoftheday.com/" class="not-italic" target="_blank" use:tooltip={{ text: "sneaky :3", underline: false }}>Links and tooltips don't have to be visible</a></li>
+      <li>Underlined text <span use:tooltip={"Like this!"}>has a Tooltip</span></li>
+      <li><a target="_blank" href="https://petoftheday.com/">Italic text is a link</a></li>
+      <li><a target="_blank" href="https://catoftheday.com/" use:tooltip={"oo cat!"}>Links can have tooltips too</a></li>
+      <li><a target="_blank" href="https://dogoftheday.com/" class="not-italic" use:tooltip={{ text: "sneaky :3", underline: false }}>Links and tooltips don't have to be visible</a></li>
     </ul>
   </div>
 </div>

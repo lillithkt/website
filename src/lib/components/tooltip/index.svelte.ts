@@ -2,7 +2,7 @@ import { mount, unmount } from 'svelte';
 import Tooltip from './component.svelte';
 import type { Action } from 'svelte/action';
 import z from 'zod';
-const SHOW_BOUNDING_BOX = true;
+import { browser } from '$app/environment';
 const BOUNDING_BOX_CLASSES = ["outline-2", "outline-red-500/15"];
 
 const propsSchema =
@@ -49,7 +49,9 @@ const tooltip: Action<HTMLElement, TooltipProps> = (element, props) => {
 	element.addEventListener('mouseleave', mouseLeave);
 	element.addEventListener('mousemove', mouseMove);
 
-	if (import.meta.env.DEV && SHOW_BOUNDING_BOX && text) {
+	const shouldShowBoundingBox = $derived(browser && new URLSearchParams(window.location.search).has('bb'));
+
+	if (shouldShowBoundingBox && text) {
 		element.classList.add(...BOUNDING_BOX_CLASSES);
 	}
 
