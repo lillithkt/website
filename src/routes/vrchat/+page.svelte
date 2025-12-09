@@ -26,7 +26,7 @@
 <div class="flex flex-col gap-5">
   <div class="flex flex-col gap-5">
     <!-- Profile Header -->
-    <a class="flex gap-5 items-start not-italic" href="https://vrchat.com/home/user/{data.currentUser.id}">
+    <a class="flex gap-5 items-start not-italic flex-col md:flex-row" href="https://vrchat.com/home/user/{data.currentUser.id}">
       {#if profilePic}
         <img
           src={profilePic}

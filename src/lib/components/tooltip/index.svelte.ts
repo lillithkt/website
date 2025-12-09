@@ -51,9 +51,13 @@ const tooltip: Action<HTMLElement, TooltipProps> = (element, props) => {
 
 	const shouldShowBoundingBox = $derived(browser && new URLSearchParams(window.location.search).has('bb'));
 
-	if (shouldShowBoundingBox && text) {
-		element.classList.add(...BOUNDING_BOX_CLASSES);
-	}
+	$effect(() => {
+		if (shouldShowBoundingBox && text) {
+			element.classList.add(...BOUNDING_BOX_CLASSES);
+		} else {
+			element.classList.remove(...BOUNDING_BOX_CLASSES);
+		}
+	});
 
 	const destroyAction = () => {
 		element.removeEventListener('mouseover', mouseOver);

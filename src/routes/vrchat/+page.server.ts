@@ -5,22 +5,31 @@ import vrc from "$lib/server/vrchat";
 import type { CurrentUser, CurrentUserPresence, World, WorldId } from "vrchat";
 import ratelimit from "$lib/utils/ratelimit";
 import ms from "ms";
+import { error } from "@sveltejs/kit";
 
 const getCurrentUser = ratelimit(async () => {
   const currentUser = await vrc().getCurrentUser();
-  if (!currentUser.data) throw new Error("Failed to get VRChat profile");
+  if (!currentUser.data) throw error(500, "Failed to get VRChat profile");
   return currentUser.data;
 }, ms("3m"));
 
 const getWorld = ratelimit(async (worldId: WorldId) => {
   const world = await vrc().getWorld({ path: { worldId } });
-  if (!world.data) throw new Error("Failed to get VRChat world");
+  if (!world.data) throw error(500, "Failed to get VRChat world");
   return world.data;
 }, ms("1 hour"));
 
 export const load: PageServerLoad = async () => {
-  const { result: currentUser, lastRanAt: currentUserFetchedAt } = await getCurrentUser();
-  if (!currentUser) throw new Error("Failed to get VRChat profile");
+  let currentUser: CurrentUser | null = null;
+  let currentUserFetchedAt: number | null = null;
+  try {
+    const { result, lastRanAt } = await getCurrentUser();
+    if (!result) throw error(500, "Failed to get VRChat profile");
+    currentUser = result;
+    currentUserFetchedAt = lastRanAt;
+  } catch (e) {
+    throw error(500, "Failed to get VRChat profile");
+  }
 
   const isOffline = currentUser.presence?.world === "offline" || !currentUser.presence?.world;
   let worldId: WorldId | null = null;
@@ -34,10 +43,14 @@ export const load: PageServerLoad = async () => {
 
   let world: World | null = null;
   if (worldId) {
-    world = await getWorld(worldId).then(result => result.result);
-    if (world?.id !== worldId) {
-      getWorld.invalidate();
+    try {
       world = await getWorld(worldId).then(result => result.result);
+      if (world?.id !== worldId) {
+        getWorld.invalidate();
+        world = await getWorld(worldId).then(result => result.result);
+      }
+    } catch (e) {
+      throw error(500, "Failed to get VRChat world");
     }
   }
 
