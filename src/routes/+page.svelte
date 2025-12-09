@@ -27,7 +27,10 @@
 <div class="flex flex-col gap-2">
 	<h1 class="text-3xl">Hey there, I'm LillithRosePup!</h1>
 	<hr/>
-  <p class="text-red-200">Disclaimer: This website is a heavy work in progress, things may break!</p>
+  <div class="text-red-200">
+    <p>Disclaimer: This website is a heavy work in progress, things may break!</p>
+    <p class="mobile-only">Tooltips are also very buggy on mobile, sorry!</p>
+  </div>
   <hr/>
   <div class="size-fit">
     <p>I'm a programmer, namely working in Typescript and Svelte, and interested in others!</p>

@@ -10,6 +10,19 @@
   --color-text: white;
 }
 
+@layer utilities {
+  .mobile-only {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  .desktop-only {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
 
 button {
   @apply bg-button;
