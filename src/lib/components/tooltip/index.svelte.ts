@@ -151,18 +151,12 @@ const tooltip: Action<HTMLElement, TooltipProps> = (element, props) => {
 			if (endedTouch) {
 				activeTouchId = null;
 				
-				// Keep tooltip visible for a short time after touch ends, then hide
-				// This gives users time to read it even after lifting their finger
+				// Hide tooltip immediately when touch ends
 				if (touchTimeout) {
 					clearTimeout(touchTimeout);
+					touchTimeout = null;
 				}
-				if (!componentProps.hidden && isTouchOverElement) {
-					touchTimeout = setTimeout(() => {
-						hideTooltip();
-					}, 2000); // Hide after 2 seconds
-				} else {
-					hideTooltip();
-				}
+				hideTooltip();
 				isTouchOverElement = false;
 			}
 		}
