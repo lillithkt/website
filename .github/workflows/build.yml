@@ -33,7 +33,7 @@ jobs:
           push: true
           file: Dockerfile
           platforms: linux/amd64
-          tags: ghcr.io/lillithkt/website:latest
+          tags: ghcr.io/lillithrosepup/website:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy:
