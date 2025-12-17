@@ -1,9 +1,10 @@
 import { env } from "$env/dynamic/private"
 import { z } from "zod";
 import { config as dotenv } from "dotenv";
+import { publicEnvSchema } from "../clientEnv";
 if (process.env.TESTENV) dotenv({ path: ".env.example" })
 
-const envSchema = z.object({
+const envSchema = publicEnvSchema.safeExtend({
   AUTHPROXY_URL: z.url().optional(),
   AUTHPROXY_KEY: z.string().length(36).optional(),
 }).partial()

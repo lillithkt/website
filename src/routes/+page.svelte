@@ -1,6 +1,9 @@
 <script lang="ts">
+	import NowPlaying from "$lib/components/NowPlaying.svelte";
 	import tooltip from "$lib/components/tooltip/index.svelte";
 	import { MetaTags } from 'svelte-meta-tags';
+  
+  const { data } = $props();
 
 	const birthday = new Date("2006-11-17T05:00:00.000Z");
 
@@ -66,6 +69,8 @@
       {/each}
     </ul>
   </div>
+
+  <NowPlaying trackData={data.trackData} />
 
   <!-- Category -->
   <div class="bg-background-secondary p-5 border-border border rounded-lg mt-10">
